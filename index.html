@@ -33,7 +33,7 @@
 
         /* Hero */
         .hero {
-            background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #0f172a 100%);
+            background: url('assets/title.png') center center / cover no-repeat;
             color: white;
             padding: 5rem 2rem 4rem;
             text-align: center;
@@ -45,8 +45,8 @@
             content: '';
             position: absolute;
             top: 0; left: 0; right: 0; bottom: 0;
-            background: radial-gradient(circle at 30% 50%, rgba(59,130,246,0.15) 0%, transparent 60%),
-                        radial-gradient(circle at 70% 80%, rgba(59,130,246,0.1) 0%, transparent 50%);
+            background: rgba(15, 23, 42, 0.7);
+            pointer-events: none;
         }
 
         .hero > * { position: relative; z-index: 1; }
@@ -451,6 +451,7 @@
 
 <nav>
     <a href="#overview">Overview</a>
+    <a href="#speakers">Speakers</a>
     <a href="#topics">Topics</a>
     <a href="#dates">Dates</a>
     <a href="#submission">Submission</a>
@@ -476,6 +477,73 @@
         We welcome contributions from machine learning, learning theory, AutoML, and applied domains
         including geosciences, healthcare, and biology.
     </p>
+</section>
+
+<section id="speakers">
+    <h2>Invited Speakers</h2>
+    <p class="section-lead">Confirmed and invited speakers.</p>
+    <div class="speaker-grid">
+<!--        <div class="speaker-card">-->
+<!--            <div class="speaker-avatar">GV</div>-->
+<!--            <div class="name">Gael Varoquaux</div>-->
+<!--            <div class="affiliation">INRIA</div>-->
+<!--        </div>-->
+<!--        <div class="speaker-card">-->
+<!--            <div class="speaker-avatar">PG</div>-->
+<!--            <div class="name">Peter Gehler</div>-->
+<!--            <div class="affiliation">Tubingen AI Center</div>-->
+<!--        </div>-->
+<!--        <div class="speaker-card">-->
+<!--            <div class="speaker-avatar">ML</div>-->
+<!--            <div class="name">Marius Lindauer</div>-->
+<!--            <div class="affiliation">Leibniz Univ. Hannover</div>-->
+<!--        </div>-->
+<!--        <div class="speaker-card">-->
+<!--            <div class="speaker-avatar">DS</div>-->
+<!--            <div class="name">David Salinas</div>-->
+<!--            <div class="affiliation">Univ. of Freiburg</div>-->
+<!--        </div>-->
+<!--        <div class="speaker-card">-->
+<!--            <div class="speaker-avatar">EB</div>-->
+<!--            <div class="name">Emmanuel Baccelli</div>-->
+<!--            <div class="affiliation">INRIA / FU Berlin</div>-->
+<!--        </div>-->
+<!--        <div class="speaker-card">-->
+<!--            <div class="speaker-avatar">GZ</div>-->
+<!--            <div class="name">Giovanni Zappella</div>-->
+<!--            <div class="affiliation">AWS</div>-->
+<!--        </div>-->
+<!--        <div class="speaker-card">-->
+<!--            <div class="speaker-avatar">JG</div>-->
+<!--            <div class="name">Jacek Golebiowski</div>-->
+<!--            <div class="affiliation">Distil Labs</div>-->
+<!--        </div>-->
+<!--        <div class="speaker-card">-->
+<!--            <div class="speaker-avatar">AF</div>-->
+<!--            <div class="name">Antonino Freno</div>-->
+<!--            <div class="affiliation">eBay</div>-->
+<!--        </div>-->
+        <div class="speaker-card">
+            <div class="speaker-avatar">?</div>
+            <div class="name">TBA</div>
+            <div class="affiliation">To be announced</div>
+        </div>
+        <div class="speaker-card">
+            <div class="speaker-avatar">?</div>
+            <div class="name">TBA</div>
+            <div class="affiliation">To be announced</div>
+        </div>
+        <div class="speaker-card">
+            <div class="speaker-avatar">?</div>
+            <div class="name">TBA</div>
+            <div class="affiliation">To be announced</div>
+        </div>
+        <div class="speaker-card">
+            <div class="speaker-avatar">?</div>
+            <div class="name">TBA</div>
+            <div class="affiliation">To be announced</div>
+        </div>
+    </div>
 </section>
 
 <section id="topics">
@@ -568,91 +636,25 @@
 
 <section id="schedule">
     <h2>Workshop Schedule</h2>
-    <p class="section-lead">A half-day of talks, posters, discussion, and breakout sessions.</p>
-    <div style="margin-top: 1.5rem;">
-        <div class="schedule-item">
-            <div class="schedule-time">09:00</div>
-            <div class="schedule-title">Opening Remarks</div>
-        </div>
-        <div class="schedule-item">
-            <div class="schedule-time">09:10</div>
-            <div class="schedule-title">Keynote 1: TinyML and Model Capacity on Edge Devices</div>
-        </div>
-        <div class="schedule-item">
-            <div class="schedule-time">09:40</div>
-            <div class="schedule-title">Keynote 2: Multi-Objective Optimization for Robust and Efficient AI</div>
-        </div>
-        <div class="schedule-item">
-            <div class="schedule-time">10:10</div>
-            <div class="schedule-title">Contributed Talks (3 presentations)</div>
-        </div>
-        <div class="schedule-item break">
-            <div class="schedule-time">10:55</div>
-            <div class="schedule-title">Coffee Break &amp; Poster Session</div>
-        </div>
-        <div class="schedule-item">
-            <div class="schedule-time">11:40</div>
-            <div class="schedule-title">Panel Discussion: &ldquo;Is Bigger Always Better?&rdquo;</div>
-        </div>
-        <div class="schedule-item">
-            <div class="schedule-time">12:20</div>
-            <div class="schedule-title">Domain Breakout Groups (Geosciences, Healthcare, Biology)</div>
-        </div>
-        <div class="schedule-item">
-            <div class="schedule-time">12:50</div>
-            <div class="schedule-title">Closing Remarks</div>
-        </div>
+    <p class="section-lead">Preliminary schedule &mdash; details to be confirmed.</p>
+    <div class="highlight-box">
+        The detailed program will be announced after the paper acceptance notification. The half-day workshop will feature keynote talks, contributed presentations, a poster session, a panel discussion, and interactive breakout groups.
     </div>
 </section>
 
-<!--
-<section id="speakers">
-    <h2>Invited Speakers</h2>
-    <p class="section-lead">Further speakers to be confirmed.</p>
-    <div class="speaker-grid">
-        <div class="speaker-card">
-            <div class="speaker-avatar">GV</div>
-            <div class="name">Gael Varoquaux</div>
-            <div class="affiliation">INRIA</div>
-        </div>
-        <div class="speaker-card">
-            <div class="speaker-avatar">PG</div>
-            <div class="name">Peter Gehler</div>
-            <div class="affiliation">Tubingen AI Center</div>
-        </div>
-        <div class="speaker-card">
-            <div class="speaker-avatar">ML</div>
-            <div class="name">Marius Lindauer</div>
-            <div class="affiliation">Leibniz Univ. Hannover</div>
-        </div>
-        <div class="speaker-card">
-            <div class="speaker-avatar">DS</div>
-            <div class="name">David Salinas</div>
-            <div class="affiliation">Univ. of Freiburg</div>
-        </div>
-        <div class="speaker-card">
-            <div class="speaker-avatar">EB</div>
-            <div class="name">Emmanuel Baccelli</div>
-            <div class="affiliation">INRIA / FU Berlin</div>
-        </div>
-        <div class="speaker-card">
-            <div class="speaker-avatar">GZ</div>
-            <div class="name">Giovanni Zappella</div>
-            <div class="affiliation">AWS</div>
-        </div>
-        <div class="speaker-card">
-            <div class="speaker-avatar">JG</div>
-            <div class="name">Jacek Golebiowski</div>
-            <div class="affiliation">Distil Labs</div>
-        </div>
-        <div class="speaker-card">
-            <div class="speaker-avatar">AF</div>
-            <div class="name">Antonino Freno</div>
-            <div class="affiliation">eBay</div>
+
+<section id="pc">
+    <h2 style="margin-top: 3rem;">Program Committee</h2>
+    <div class="organizer-grid">
+        <div class="organizer-item">
+            <div class="organizer-dot"></div>
+            <div>
+                <div class="name">TBA</div>
+                <div class="affiliation">TBA</div>
+            </div>
         </div>
     </div>
 </section>
--->
 
 <section id="organizers">
     <h2>Organizers</h2>
@@ -701,8 +703,7 @@
         </div>
     </div>
 
-    <h2 style="margin-top: 3rem;">Program Committee</h2>
-    <p style="color: var(--text-light);">To be announced.</p>
+
 </section>
 
 </main>
