@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IBAB Workshop @ ECML PKDD 2026</title>
+    <style>
+        :root {
+            --primary: #1a3a5c;
+            --accent: #c0392b;
+            --bg: #fdfdfd;
+            --text: #2c2c2c;
+            --muted: #6c757d;
+            --border: #dee2e6;
+            --section-bg: #f5f7fa;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            color: var(--text);
+            background: var(--bg);
+            line-height: 1.7;
+        }
+
+        header {
+            background: var(--primary);
+            color: white;
+            padding: 3rem 1.5rem;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 1.6rem;
+            font-weight: normal;
+            letter-spacing: 0.04em;
+            margin-bottom: 0.5rem;
+        }
+
+        header h1 em {
+            font-style: normal;
+            color: #e8c547;
+        }
+
+        header .subtitle {
+            font-size: 1.1rem;
+            font-weight: normal;
+            opacity: 0.9;
+            margin-bottom: 1.5rem;
+        }
+
+        header .meta {
+            font-size: 0.95rem;
+            opacity: 0.8;
+        }
+
+        header .meta span {
+            margin: 0 0.5rem;
+        }
+
+        nav {
+            background: #f5f7fa;
+            border-bottom: 1px solid var(--border);
+            padding: 0.8rem 1.5rem;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav a {
+            color: var(--primary);
+            text-decoration: none;
+            margin: 0 0.9rem;
+            font-size: 0.9rem;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+        }
+
+        nav a:hover {
+            color: var(--accent);
+        }
+
+        main {
+            max-width: 780px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        section {
+            padding: 2.5rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        section:last-child {
+            border-bottom: none;
+        }
+
+        h2 {
+            font-size: 1.3rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-weight: normal;
+            letter-spacing: 0.02em;
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        .highlight {
+            font-size: 1.15rem;
+            font-style: italic;
+            color: var(--primary);
+            border-left: 3px solid var(--accent);
+            padding-left: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        h3 {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text);
+            margin: 1.5rem 0 0.5rem 0;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        ul {
+            margin: 0.5rem 0 1rem 1.5rem;
+        }
+
+        li {
+            margin-bottom: 0.3rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+            font-size: 0.95rem;
+        }
+
+        th {
+            text-align: left;
+            background: var(--primary);
+            color: white;
+            padding: 0.6rem 1rem;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+
+        td {
+            padding: 0.6rem 1rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        tr:nth-child(even) {
+            background: var(--section-bg);
+        }
+
+        .dates-table td:first-child {
+            font-weight: 600;
+            width: 55%;
+        }
+
+        .schedule-table td:first-child {
+            width: 80px;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-size: 0.9rem;
+            color: var(--muted);
+        }
+
+        .speaker-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .speaker-card {
+            background: var(--section-bg);
+            padding: 1rem 1.2rem;
+            border-left: 3px solid var(--primary);
+        }
+
+        .speaker-card .name {
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .speaker-card .affiliation {
+            font-size: 0.85rem;
+            color: var(--muted);
+        }
+
+        .organizer-list {
+            list-style: none;
+            margin-left: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 0.5rem;
+        }
+
+        .organizer-list li {
+            padding: 0.4rem 0;
+        }
+
+        .organizer-list .name {
+            font-weight: 600;
+        }
+
+        .organizer-list .affiliation {
+            font-size: 0.9rem;
+            color: var(--muted);
+        }
+
+        .submission-box {
+            background: var(--section-bg);
+            border: 1px solid var(--border);
+            padding: 1.5rem;
+            margin: 1rem 0;
+        }
+
+        .submission-box strong {
+            color: var(--primary);
+        }
+
+        footer {
+            background: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 1.5rem;
+            font-size: 0.85rem;
+            opacity: 0.9;
+        }
+
+        footer a {
+            color: #e8c547;
+            text-decoration: none;
+        }
+
+        @media (max-width: 600px) {
+            header h1 { font-size: 1.3rem; }
+            nav a { margin: 0 0.4rem; font-size: 0.8rem; }
+            .speaker-grid { grid-template-columns: 1fr; }
+            .organizer-list { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1><em>Is Bigger Always Better?</em></h1>
+    <div class="subtitle">Model Capacity for Task-Specific AI: Theory, Practice, and Applications</div>
+    <div class="meta">
+        <span>ECML PKDD 2026</span> &middot;
+        <span>September 2026</span> &middot;
+        <span>Naples, Italy</span>
+    </div>
+</header>
+
+<nav>
+    <a href="#overview">Overview</a>
+    <a href="#topics">Topics</a>
+    <a href="#dates">Dates</a>
+    <a href="#submission">Submission</a>
+    <a href="#schedule">Schedule</a>
+    <a href="#speakers">Speakers</a>
+    <a href="#organizers">Organizers</a>
+</nav>
+
+<main>
+
+<section id="overview">
+    <h2>Overview</h2>
+    <p class="highlight">Do we always need bigger models?</p>
+    <p>
+        As the AI community pushes toward ever-larger architectures, a fundamental question remains
+        underexplored: <strong>How much model capacity does a specific task actually require?</strong>
+    </p>
+    <p>
+        The IBAB workshop brings together researchers and practitioners to investigate the relationship
+        between model capacity &mdash; in terms of parameters, architecture, and training data &mdash; and the
+        requirements of specific tasks. We span the full spectrum from TinyML on microcontrollers to
+        Large Language Models, with a focus on principled approaches to right-sizing AI systems.
+    </p>
+    <p>
+        We welcome contributions from machine learning, learning theory, AutoML, and applied domains
+        including geosciences, healthcare, and biology.
+    </p>
+</section>
+
+<section id="topics">
+    <h2>Topics of Interest</h2>
+    <p>We invite submissions on (but not limited to) the following topics:</p>
+
+    <h3>Theory and Methodology</h3>
+    <ul>
+        <li>Theoretical and empirical bounds on model capacity (scaling laws, VC theory, PAC-Bayes)</li>
+        <li>Model selection and neural architecture search for right-sized models</li>
+        <li>Multi-objective optimization balancing accuracy, efficiency, robustness, and fairness</li>
+        <li>Benchmarks and evaluation protocols for capacity-performance trade-offs</li>
+    </ul>
+
+    <h3>Model Compression and Efficiency</h3>
+    <ul>
+        <li>Knowledge distillation, pruning, and quantization</li>
+        <li>TinyML and efficient models for edge devices and resource-constrained environments</li>
+        <li>Green AI: energy consumption, carbon footprint, and sustainability of model sizing decisions</li>
+    </ul>
+
+    <h3>Domain Applications</h3>
+    <ul>
+        <li>Geosciences: climate modeling, remote sensing, sensor networks</li>
+        <li>Healthcare: medical imaging, wearable diagnostics, clinical decision support</li>
+        <li>Biology: protein folding, genomic analysis, drug discovery</li>
+        <li>Other domains with specific capacity constraints or requirements</li>
+    </ul>
+
+    <h3>Empirical Studies</h3>
+    <ul>
+        <li>Comparative studies of small specialized models vs. large general-purpose models</li>
+        <li>Task-specific capacity analysis across model families</li>
+        <li>Case studies on deploying right-sized models in production</li>
+    </ul>
+</section>
+
+<section id="dates">
+    <h2>Important Dates</h2>
+    <table class="dates-table">
+        <thead>
+            <tr><th>Milestone</th><th>Date</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>Submission deadline</td><td>June 5, 2026</td></tr>
+            <tr><td>Notification of acceptance</td><td>June 27, 2026</td></tr>
+            <tr><td>Camera-ready deadline</td><td>July 10, 2026</td></tr>
+            <tr><td>Workshop</td><td>September 7 or 11, 2026</td></tr>
+        </tbody>
+    </table>
+    <p style="font-size: 0.9rem; color: var(--muted);">All deadlines are 23:59 AoE (Anywhere on Earth).</p>
+</section>
+
+<section id="submission">
+    <h2>Submission Guidelines</h2>
+    <p>We accept the following submission formats:</p>
+
+    <div class="submission-box">
+        <p><strong>Extended abstracts</strong> (2&ndash;4 pages, excluding references) presenting original work,
+        preliminary results, or position statements. Use LNCS format.</p>
+    </div>
+
+    <div class="submission-box">
+        <p><strong>Oral-only presentations</strong> of recently published or under-review work relevant to the
+        workshop topics. Submit a 1-page summary with a reference to the original publication.</p>
+    </div>
+
+    <p>
+        All submissions will be reviewed single-blind by at least two members of the Program Committee
+        via OpenReview. Accepted extended abstracts will be made available on the workshop website but
+        will <strong>not</strong> appear in archival proceedings, allowing authors to submit extended
+        versions to future venues.
+    </p>
+
+    <p>
+        <!-- <a href="#">Submit via OpenReview</a> &mdash; submission link coming soon. -->
+        Submission link coming soon.
+    </p>
+</section>
+
+<section id="schedule">
+    <h2>Workshop Schedule</h2>
+    <p>Half-day workshop featuring invited talks, contributed presentations, a poster session, panel discussion, and interactive breakout groups.</p>
+    <table class="schedule-table">
+        <thead>
+            <tr><th>Time</th><th>Session</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>09:00</td><td>Opening Remarks</td></tr>
+            <tr><td>09:10</td><td>Keynote 1: TinyML and Model Capacity on Edge Devices</td></tr>
+            <tr><td>09:40</td><td>Keynote 2: Multi-Objective Optimization for Robust and Efficient AI</td></tr>
+            <tr><td>10:10</td><td>Contributed Talks (3 presentations)</td></tr>
+            <tr><td>10:55</td><td>Coffee Break &amp; Poster Session</td></tr>
+            <tr><td>11:40</td><td>Panel Discussion: &ldquo;Is Bigger Always Better?&rdquo;</td></tr>
+            <tr><td>12:20</td><td>Domain Breakout Groups (Geosciences, Healthcare, Biology)</td></tr>
+            <tr><td>12:50</td><td>Closing Remarks</td></tr>
+        </tbody>
+    </table>
+</section>
+
+<section id="speakers">
+    <h2>Invited Speakers</h2>
+    <div class="speaker-grid">
+        <div class="speaker-card">
+            <div class="name">Gael Varoquaux</div>
+            <div class="affiliation">INRIA</div>
+        </div>
+        <div class="speaker-card">
+            <div class="name">Peter Gehler</div>
+            <div class="affiliation">Tubingen AI Center</div>
+        </div>
+        <div class="speaker-card">
+            <div class="name">Marius Lindauer</div>
+            <div class="affiliation">Leibniz University Hannover</div>
+        </div>
+        <div class="speaker-card">
+            <div class="name">David Salinas</div>
+            <div class="affiliation">University of Freiburg</div>
+        </div>
+        <div class="speaker-card">
+            <div class="name">Emmanuel Baccelli</div>
+            <div class="affiliation">INRIA / FU Berlin</div>
+        </div>
+        <div class="speaker-card">
+            <div class="name">Giovanni Zappella</div>
+            <div class="affiliation">AWS</div>
+        </div>
+        <div class="speaker-card">
+            <div class="name">Jacek Golebiowski</div>
+            <div class="affiliation">Distil Labs</div>
+        </div>
+        <div class="speaker-card">
+            <div class="name">Antonino Freno</div>
+            <div class="affiliation">eBay</div>
+        </div>
+    </div>
+    <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--muted);">Further speakers to be confirmed.</p>
+</section>
+
+<section id="organizers">
+    <h2>Organizers</h2>
+    <ul class="organizer-list">
+        <li><span class="name">Vipin Singh</span><br><span class="affiliation">BHT Berlin</span></li>
+        <li><span class="name">Felix Biessmann</span><br><span class="affiliation">BHT Berlin / Einstein Center Digital Future</span></li>
+        <li><span class="name">Mario Koddenbrock</span><br><span class="affiliation">HTW Berlin</span></li>
+        <li><span class="name">Ricardo Knauer</span><br><span class="affiliation">HTW Berlin</span></li>
+        <li><span class="name">Erik Rodner</span><br><span class="affiliation">HTW Berlin / Merantix Momentum</span></li>
+        <li><span class="name">Kristian Hildebrand</span><br><span class="affiliation">BHT Berlin</span></li>
+    </ul>
+
+    <h2 style="margin-top: 2rem;">Program Committee</h2>
+    <p><em>To be announced.</em></p>
+</section>
+
+</main>
+
+<footer>
+    IBAB Workshop @ <a href="https://ecmlpkdd.org/" target="_blank" rel="noopener">ECML PKDD 2026</a> &middot; Naples, Italy
+</footer>
+
+</body>
+</html>
