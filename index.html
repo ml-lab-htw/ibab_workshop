@@ -48,12 +48,14 @@
 <section id="overview">
     <h2>Overview</h2>
     <p>
-        This workshop explores the fundamental question of how much capacity (in terms of parameters, architecture, and data) an AI model requires to effectively solve a specific task across a wide spectrum of application domains. This question is central to the ongoing community debate between large multi-task foundation models and smaller task-specific models. We will bring together researchers and practitioners from machine learning and various applications, including but not limited to NLP, geosciences, healthcare and biology to discuss theoretical foundations, empirical findings, and real-world applications.
+        Do we always need bigger models? As the AI community pushes toward ever-larger architectures, a fundamental question remains underexplored: <em>How much model capacity does a specific task actually require?</em>
     </p>
     <p>
-As AI models grow in size and complexity, understanding the relationship between model capacity and task requirements becomes crucial for efficiency, sustainability, and practical deployment. Importantly, task objectives are not limited to predictive performance but can often include a number of potentially conflicting objectives such as robustness or efficiency. Accordingly, a key research question is which applications and task settings necessitate large foundation models, and under what conditions smaller models offer a more suitable alternative.
-Our workshop aims to significantly contribute to the ongoing debate by gathering research evidence from multiple application domains and discussing generic optimization approaches to investigate tradeoffs between predictive performance, efficiency and other metrics.
-</p>
+        This workshop explores the fundamental question of how much capacity (in terms of parameters, architecture, and data) an AI model requires to effectively solve a specific task. This question is central to the ongoing community debate between large multi-task foundation models and smaller task-specific models. We will bring together researchers and practitioners from machine learning and a broad spectrum of applications, including but not limited to geosciences, healthcare, robotics, and biology to discuss theoretical foundations, empirical findings, and real-world applications. We welcome contributions to the full spectrum from TinyML on microcontrollers to Large Language Models, with a focus on principled approaches to right-sizing AI systems. Ideally, workshop contributions should investigate for a specific application scenario or task the tradeoffs in various performance metrics, including but not limited to predictive performance, inference speed, energy efficiency or robustness.
+    </p>
+    <p>
+        <strong>Keywords:</strong> model capacity, model selection, multi-objective optimization, tinyML, green AI, domain-specific AI, small language models
+    </p>
 </section>
 
 <section id="speakers">
@@ -81,19 +83,36 @@ Our workshop aims to significantly contribute to the ongoing debate by gathering
 <section id="topics">
     <h2>Topics of Interest</h2>
     <p class="section-lead">We invite submissions on (but not limited to) the following topics.</p>
+
+    <h3>Theory and Methodology</h3>
     <ul>
-        <li>Theoretical and empirical bounds on model capacity.</li>
-        <li>TinyML: Efficient models for edge devices and low-power applications.</li>
-        <li>Multi-objective optimization: Balancing accuracy, efficiency, and robustness.</li>
-        <li>Domain-specific applications:
-            <ul>
-                <li>Natural Language Processing: Tasks in Industry 4.0, digital humanities, clinical settings, etc. involving highly specific, small text corpus.</li>
-                <li>Geosciences: Climate modelling, sensor networks.</li>
-                <li>Healthcare: Medical imaging, wearable diagnostics.</li>
-                <li>Robotics: Manipulation and grasping, human–robot interaction.</li>
-                <li>Biology: Protein folding, genomic analysis.</li>
-            </ul>
-        </li>
+        <li>Theoretical and empirical bounds on model capacity (scaling laws, VC theory, PAC-Bayes)</li>
+        <li>Model selection and neural architecture search for right-sized models</li>
+        <li>Multi-objective optimization balancing accuracy, efficiency, robustness, and fairness</li>
+        <li>Benchmarks and evaluation protocols for capacity-performance trade-offs</li>
+    </ul>
+
+    <h3>Model Compression and Efficiency</h3>
+    <ul>
+        <li>Knowledge distillation, pruning, and quantization</li>
+        <li>TinyML and efficient models for edge devices and resource-constrained environments</li>
+        <li>Green AI: energy consumption, carbon footprint, and sustainability of model sizing decisions</li>
+    </ul>
+
+    <h3>Domain Applications</h3>
+    <ul>
+        <li>Geosciences: climate modeling, remote sensing, sensor networks</li>
+        <li>Healthcare: medical imaging, wearable diagnostics, clinical decision support</li>
+        <li>Robotics: manipulation and grasping, human-robot interaction</li>
+        <li>Biology: protein folding, genomic analysis, drug discovery</li>
+        <li>Other domains with specific capacity constraints or requirements</li>
+    </ul>
+
+    <h3>Empirical Studies</h3>
+    <ul>
+        <li>Comparative studies of small specialized models vs. large general-purpose models</li>
+        <li>Task-specific capacity analysis across model families</li>
+        <li>Case studies on deploying right-sized models in production</li>
     </ul>
 </section>
 
@@ -146,36 +165,40 @@ Our workshop aims to significantly contribute to the ongoing debate by gathering
     <h2>Workshop Schedule</h2>
     <p class="section-lead">Preliminary schedule &mdash; details to be confirmed.</p>
     <div class="schedule-item">
-        <div class="schedule-time">10 min</div>
+        <div class="schedule-time">09:00</div>
         <div class="schedule-title">Opening Remarks</div>
     </div>
     <div class="schedule-item">
-        <div class="schedule-time">30 min</div>
+        <div class="schedule-time">09:10</div>
         <div class="schedule-title">Keynote Talk 1: Emmanuel Baccelli - "TinyML: Pushing the Limits of Model Capacity on Edge Devices"</div>
     </div>
     <div class="schedule-item">
-        <div class="schedule-time">30 min</div>
+        <div class="schedule-time">09:30</div>
         <div class="schedule-title">Keynote Talk 2: David Salinas - "Multi-Objective Optimization for Robust and Efficient AI"</div>
     </div>
     <div class="schedule-item">
-        <div class="schedule-time">30 min</div>
+        <div class="schedule-time">10:50</div>
         <div class="schedule-title">Keynote Talk 3: Jacek Gołębiowski - "Benchmarking Small Language Models"</div>
     </div>
-    <div class="schedule-item">
-        <div class="schedule-time">40 min</div>
-        <div class="schedule-title">Panel Discussion: "Is Bigger Always Better? Capacity, Efficiency, and Real-World Needs"</div>
-    </div>
     <div class="schedule-item break">
-        <div class="schedule-time">60 min</div>
-        <div class="schedule-title">Poster Session & Coffee Break</div>
+        <div class="schedule-time"></div>
+        <div class="schedule-title">Coffee Break and Poster Session</div>
     </div>
     <div class="schedule-item">
-        <div class="schedule-time">40 min</div>
-        <div class="schedule-title">Breakout Groups: Domain-specific discussions (geosciences, healthcare, robotics, biology)</div>
+        <div class="schedule-time">11:15</div>
+        <div class="schedule-title">Contributed Talks (3 presentations)</div>
     </div>
     <div class="schedule-item">
-        <div class="schedule-time">10 min</div>
-        <div class="schedule-title">Closing Remarks & Summary</div>
+        <div class="schedule-time">12:00</div>
+        <div class="schedule-title">Panel Discussion: "Is Bigger Always Better?"</div>
+    </div>
+    <div class="schedule-item">
+        <div class="schedule-time">12:30</div>
+        <div class="schedule-title">Domain Breakout Groups (LLMs, Geosciences, Healthcare, Biology, Robotics)</div>
+    </div>
+    <div class="schedule-item">
+        <div class="schedule-time">12:50</div>
+        <div class="schedule-title">Closing Remarks</div>
     </div>
 </section>
 
@@ -235,7 +258,7 @@ Our workshop aims to significantly contribute to the ongoing debate by gathering
             <div class="organizer-dot"></div>
             <div>
                 <div class="name">Helena Mihaljevic</div>
-                <div class="affiliation">ECDF, HTW</div>
+                <div class="affiliation">Einstein Center Digital Future, HTW Berlin</div>
             </div>
         </div>
         <div class="organizer-item">
@@ -249,28 +272,14 @@ Our workshop aims to significantly contribute to the ongoing debate by gathering
             <div class="organizer-dot"></div>
             <div>
                 <div class="name">Felix Biessmann</div>
-                <div class="affiliation">BHT Berlin, ECDF</div>
+                <div class="affiliation">BHT / Einstein Center Digital Future</div>
             </div>
         </div>
         <div class="organizer-item">
             <div class="organizer-dot"></div>
             <div>
                 <div class="name">Erik Rodner</div>
-                <div class="affiliation">HTW Berlin, Merantix Momentum</div>
-            </div>
-        </div>
-        <div class="organizer-item">
-            <div class="organizer-dot"></div>
-            <div>
-                <div class="name">Peter Gehler</div>
-                <div class="affiliation">Univ. of Tübingen, Tübingen AI Center</div>
-            </div>
-        </div>
-        <div class="organizer-item">
-            <div class="organizer-dot"></div>
-            <div>
-                <div class="name">Alexander Binder</div>
-                <div class="affiliation">Univ. of Leipzig</div>
+                <div class="affiliation">HTW Berlin / Merantix Momentum</div>
             </div>
         </div>
         <div class="organizer-item">
@@ -278,6 +287,20 @@ Our workshop aims to significantly contribute to the ongoing debate by gathering
             <div>
                 <div class="name">Kristian Hildebrand</div>
                 <div class="affiliation">BHT Berlin</div>
+            </div>
+        </div>
+        <div class="organizer-item">
+            <div class="organizer-dot"></div>
+            <div>
+                <div class="name">Peter Gehler</div>
+                <div class="affiliation">Tübingen AI Center</div>
+            </div>
+        </div>
+        <div class="organizer-item">
+            <div class="organizer-dot"></div>
+            <div>
+                <div class="name">Alexander Binder</div>
+                <div class="affiliation">University of Leipzig</div>
             </div>
         </div>
     </div>
@@ -301,7 +324,7 @@ Our workshop aims to significantly contribute to the ongoing debate by gathering
             <div class="organizer-dot"></div>
             <div>
                 <div class="name">Vipin Singh</div>
-                <div class="affiliation">BHT</div>
+                <div class="affiliation">BHT Berlin</div>
             </div>
         </div>
         <div class="organizer-item">
