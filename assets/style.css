@@ -404,6 +404,18 @@ footer a {
 
 footer a:hover { text-decoration: underline; }
 
+/* Confirmation Banner */
+.confirmation-banner {
+    background-color: #fff3cd;
+    color: #856404;
+    padding: 1rem;
+    margin-top: 2rem;
+    border: 1px solid #ffeeba;
+    border-radius: var(--radius);
+    text-align: center;
+    font-weight: 500;
+}
+
 @media (max-width: 640px) {
     .hero { padding: 3rem 1.5rem 2.5rem; }
     .hero h1 { font-size: 1.8rem; }
