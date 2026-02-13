@@ -7,429 +7,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary: #0f172a;
-            --accent: #3b82f6;
-            --accent-light: #dbeafe;
-            --accent-dark: #1e40af;
-            --bg: #ffffff;
-            --surface: #f8fafc;
-            --text: #334155;
-            --text-light: #94a3b8;
-            --border: #e2e8f0;
-            --radius: 12px;
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            color: var(--text);
-            background: var(--bg);
-            line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
-        }
-
-        /* Hero */
-        .hero {
-            background: url('assets/title.png') center center / cover no-repeat;
-            color: white;
-            padding: 5rem 2rem 4rem;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(15, 23, 42, 0.7);
-            pointer-events: none;
-        }
-
-        .hero > * { position: relative; z-index: 1; }
-
-        .hero .badge {
-            display: inline-block;
-            background: rgba(59,130,246,0.2);
-            border: 1px solid rgba(59,130,246,0.3);
-            color: #93c5fd;
-            padding: 0.35rem 1rem;
-            border-radius: 100px;
-            font-size: 0.8rem;
-            font-weight: 500;
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
-            margin-bottom: 1.5rem;
-        }
-
-        .hero h1 {
-            font-size: 2.8rem;
-            font-weight: 700;
-            line-height: 1.15;
-            margin-bottom: 1rem;
-            letter-spacing: -0.03em;
-        }
-
-        .hero h1 span {
-            background: linear-gradient(135deg, #60a5fa, #a78bfa);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .hero .subtitle {
-            font-size: 1.15rem;
-            font-weight: 300;
-            color: #cbd5e1;
-            max-width: 600px;
-            margin: 0 auto 2rem;
-        }
-
-        .hero-meta {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            flex-wrap: wrap;
-            font-size: 0.9rem;
-            color: #94a3b8;
-        }
-
-        .hero-meta div {
-            display: flex;
-            align-items: center;
-            gap: 0.4rem;
-        }
-
-        .hero-meta svg {
-            width: 16px;
-            height: 16px;
-            stroke: #60a5fa;
-            fill: none;
-            stroke-width: 2;
-            stroke-linecap: round;
-            stroke-linejoin: round;
-        }
-
-        /* Nav */
-        nav {
-            background: rgba(255,255,255,0.95);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--border);
-            padding: 0.9rem 2rem;
-            text-align: center;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        nav a {
-            color: var(--text);
-            text-decoration: none;
-            margin: 0 1rem;
-            font-size: 0.85rem;
-            font-weight: 500;
-            transition: color 0.2s;
-        }
-
-        nav a:hover { color: var(--accent); }
-
-        /* Main */
-        main {
-            max-width: 820px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        section {
-            padding: 4rem 0;
-        }
-
-        section + section {
-            border-top: 1px solid var(--border);
-        }
-
-        h2 {
-            font-size: 1.6rem;
-            font-weight: 700;
-            color: var(--primary);
-            margin-bottom: 0.4rem;
-            letter-spacing: -0.02em;
-        }
-
-        .section-lead {
-            color: var(--text-light);
-            font-size: 1rem;
-            margin-bottom: 2rem;
-        }
-
-        p { margin-bottom: 1rem; }
-
-        .highlight-box {
-            background: linear-gradient(135deg, var(--accent-light), #ede9fe);
-            border-radius: var(--radius);
-            padding: 1.5rem 2rem;
-            margin: 1.5rem 0;
-            font-size: 1.1rem;
-            font-weight: 500;
-            color: var(--primary);
-        }
-
-        /* Topic cards */
-        .topic-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .topic-group h3 {
-            font-size: 0.75rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            color: var(--accent-dark);
-            margin-bottom: 0.6rem;
-        }
-
-        .topic-group ul {
-            list-style: none;
-            margin: 0;
-        }
-
-        .topic-group li {
-            padding: 0.45rem 0 0.45rem 1.2rem;
-            position: relative;
-            font-size: 0.95rem;
-        }
-
-        .topic-group li::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0.85rem;
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            background: var(--accent);
-        }
-
-        /* Dates */
-        .dates-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 1rem;
-            margin-top: 1.5rem;
-        }
-
-        .date-card {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            padding: 1.2rem 1.4rem;
-            transition: border-color 0.2s;
-        }
-
-        .date-card:hover {
-            border-color: var(--accent);
-        }
-
-        .date-card .label {
-            font-size: 0.8rem;
-            font-weight: 500;
-            color: var(--text-light);
-            text-transform: uppercase;
-            letter-spacing: 0.04em;
-            margin-bottom: 0.3rem;
-        }
-
-        .date-card .date {
-            font-size: 1rem;
-            font-weight: 600;
-            color: var(--primary);
-        }
-
-        .date-note {
-            margin-top: 1rem;
-            font-size: 0.85rem;
-            color: var(--text-light);
-        }
-
-        /* Submission */
-        .format-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1rem;
-            margin: 1.5rem 0;
-        }
-
-        .format-card {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            padding: 1.5rem;
-        }
-
-        .format-card h4 {
-            font-size: 0.95rem;
-            font-weight: 600;
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-        }
-
-        .format-card p {
-            font-size: 0.9rem;
-            margin-bottom: 0;
-            color: var(--text);
-        }
-
-        /* Schedule */
-        .schedule-item {
-            display: flex;
-            gap: 1.5rem;
-            padding: 0.9rem 0;
-            border-bottom: 1px solid var(--border);
-            align-items: baseline;
-        }
-
-        .schedule-item:last-child { border-bottom: none; }
-
-        .schedule-time {
-            font-family: 'Inter', monospace;
-            font-size: 0.85rem;
-            font-weight: 600;
-            color: var(--accent);
-            min-width: 50px;
-        }
-
-        .schedule-title {
-            font-size: 0.95rem;
-        }
-
-        .schedule-item.break {
-            background: var(--surface);
-            margin: 0 -1rem;
-            padding: 0.9rem 1rem;
-            border-radius: 8px;
-            border-bottom: none;
-        }
-
-        /* Speakers */
-        .speaker-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-            gap: 1rem;
-            margin-top: 1.5rem;
-        }
-
-        .speaker-card {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            padding: 1.3rem;
-            text-align: center;
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-
-        .speaker-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-        }
-
-        .speaker-avatar {
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--accent-light), #ede9fe);
-            margin: 0 auto 0.8rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 600;
-            font-size: 0.85rem;
-            color: var(--accent-dark);
-        }
-
-        .speaker-card .name {
-            font-weight: 600;
-            font-size: 0.9rem;
-            color: var(--primary);
-        }
-
-        .speaker-card .affiliation {
-            font-size: 0.8rem;
-            color: var(--text-light);
-            margin-top: 0.15rem;
-        }
-
-        /* Organizers */
-        .organizer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
-            gap: 0.8rem;
-            margin-top: 1.5rem;
-        }
-
-        .organizer-item {
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
-            padding: 0.8rem 1rem;
-            background: var(--surface);
-            border-radius: 8px;
-        }
-
-        .organizer-dot {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: var(--accent);
-            flex-shrink: 0;
-        }
-
-        .organizer-item .name {
-            font-weight: 600;
-            font-size: 0.9rem;
-            color: var(--primary);
-        }
-
-        .organizer-item .affiliation {
-            font-size: 0.8rem;
-            color: var(--text-light);
-        }
-
-        /* Footer */
-        footer {
-            background: var(--primary);
-            color: #94a3b8;
-            text-align: center;
-            padding: 2.5rem 2rem;
-            margin-top: 2rem;
-            font-size: 0.85rem;
-        }
-
-        footer a {
-            color: #60a5fa;
-            text-decoration: none;
-        }
-
-        footer a:hover { text-decoration: underline; }
-
-        @media (max-width: 640px) {
-            .hero { padding: 3rem 1.5rem 2.5rem; }
-            .hero h1 { font-size: 1.8rem; }
-            .hero-meta { gap: 1rem; }
-            nav a { margin: 0 0.5rem; font-size: 0.8rem; }
-            main { padding: 0 1.2rem; }
-            section { padding: 2.5rem 0; }
-            .speaker-grid { grid-template-columns: repeat(2, 1fr); }
-        }
-    </style>
+    <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
 
 <div class="hero">
     <div class="badge">ECML PKDD 2026 Workshop</div>
-    <h1><span>Is Bigger Always Better?</span></h1>
+    <h1><span>Is Bigger Always Better? (IBAB)</span></h1>
     <div class="subtitle">
         Model Capacity for Task-Specific AI: Theory, Practice, and Applications
     </div>
@@ -463,85 +47,33 @@
 
 <section id="overview">
     <h2>Overview</h2>
-    <p class="section-lead">Right-sizing AI for real-world tasks.</p>
-    <div class="highlight-box">
-        Do we always need bigger models? How much model capacity does a specific task actually require?
-    </div>
     <p>
-        The IBAB workshop brings together researchers and practitioners to investigate the relationship
-        between model capacity &mdash; in terms of parameters, architecture, and training data &mdash; and the
-        requirements of specific tasks. We span the full spectrum from TinyML on microcontrollers to
-        Large Language Models, with a focus on principled approaches to right-sizing AI systems.
+        This workshop explores the fundamental question of how much capacity (in terms of parameters, architecture, and data) an AI model requires to effectively solve a specific task across a wide spectrum of application domains. This question is central to the ongoing community debate between large multi-task foundation models and smaller task-specific models. We will bring together researchers and practitioners from machine learning and various applications, including but not limited to NLP, geosciences, healthcare and biology to discuss theoretical foundations, empirical findings, and real-world applications.
     </p>
     <p>
-        We welcome contributions from machine learning, learning theory, AutoML, and applied domains
-        including geosciences, healthcare, and biology.
-    </p>
+As AI models grow in size and complexity, understanding the relationship between model capacity and task requirements becomes crucial for efficiency, sustainability, and practical deployment. Importantly, task objectives are not limited to predictive performance but can often include a number of potentially conflicting objectives such as robustness or efficiency. Accordingly, a key research question is which applications and task settings necessitate large foundation models, and under what conditions smaller models offer a more suitable alternative.
+Our workshop aims to significantly contribute to the ongoing debate by gathering research evidence from multiple application domains and discussing generic optimization approaches to investigate tradeoffs between predictive performance, efficiency and other metrics.
+</p>
 </section>
 
 <section id="speakers">
     <h2>Invited Speakers</h2>
     <p class="section-lead">Confirmed and invited speakers.</p>
     <div class="speaker-grid">
-<!--        <div class="speaker-card">-->
-<!--            <div class="speaker-avatar">GV</div>-->
-<!--            <div class="name">Gael Varoquaux</div>-->
-<!--            <div class="affiliation">INRIA</div>-->
-<!--        </div>-->
-<!--        <div class="speaker-card">-->
-<!--            <div class="speaker-avatar">PG</div>-->
-<!--            <div class="name">Peter Gehler</div>-->
-<!--            <div class="affiliation">Tubingen AI Center</div>-->
-<!--        </div>-->
-<!--        <div class="speaker-card">-->
-<!--            <div class="speaker-avatar">ML</div>-->
-<!--            <div class="name">Marius Lindauer</div>-->
-<!--            <div class="affiliation">Leibniz Univ. Hannover</div>-->
-<!--        </div>-->
-<!--        <div class="speaker-card">-->
-<!--            <div class="speaker-avatar">DS</div>-->
-<!--            <div class="name">David Salinas</div>-->
-<!--            <div class="affiliation">Univ. of Freiburg</div>-->
-<!--        </div>-->
-<!--        <div class="speaker-card">-->
-<!--            <div class="speaker-avatar">EB</div>-->
-<!--            <div class="name">Emmanuel Baccelli</div>-->
-<!--            <div class="affiliation">INRIA / FU Berlin</div>-->
-<!--        </div>-->
-<!--        <div class="speaker-card">-->
-<!--            <div class="speaker-avatar">GZ</div>-->
-<!--            <div class="name">Giovanni Zappella</div>-->
-<!--            <div class="affiliation">AWS</div>-->
-<!--        </div>-->
-<!--        <div class="speaker-card">-->
-<!--            <div class="speaker-avatar">JG</div>-->
-<!--            <div class="name">Jacek Golebiowski</div>-->
-<!--            <div class="affiliation">Distil Labs</div>-->
-<!--        </div>-->
-<!--        <div class="speaker-card">-->
-<!--            <div class="speaker-avatar">AF</div>-->
-<!--            <div class="name">Antonino Freno</div>-->
-<!--            <div class="affiliation">eBay</div>-->
-<!--        </div>-->
         <div class="speaker-card">
-            <div class="speaker-avatar">?</div>
-            <div class="name">TBA</div>
-            <div class="affiliation">To be announced</div>
+            <div class="speaker-avatar">EB</div>
+            <div class="name">Emmanuel Baccelli</div>
+            <div class="affiliation">INRIA / FU Berlin</div>
         </div>
         <div class="speaker-card">
-            <div class="speaker-avatar">?</div>
-            <div class="name">TBA</div>
-            <div class="affiliation">To be announced</div>
+            <div class="speaker-avatar">DS</div>
+            <div class="name">David Salinas</div>
+            <div class="affiliation">Ellis, University of Freiburg</div>
         </div>
         <div class="speaker-card">
-            <div class="speaker-avatar">?</div>
-            <div class="name">TBA</div>
-            <div class="affiliation">To be announced</div>
-        </div>
-        <div class="speaker-card">
-            <div class="speaker-avatar">?</div>
-            <div class="name">TBA</div>
-            <div class="affiliation">To be announced</div>
+            <div class="speaker-avatar">JG</div>
+            <div class="name">Jacek Gołębiowski</div>
+            <div class="affiliation">distil labs</div>
         </div>
     </div>
 </section>
@@ -549,44 +81,20 @@
 <section id="topics">
     <h2>Topics of Interest</h2>
     <p class="section-lead">We invite submissions on (but not limited to) the following topics.</p>
-
-    <div class="topic-group">
-        <h3>Theory and Methodology</h3>
-        <ul>
-            <li>Theoretical and empirical bounds on model capacity (scaling laws, VC theory, PAC-Bayes)</li>
-            <li>Model selection and neural architecture search for right-sized models</li>
-            <li>Multi-objective optimization balancing accuracy, efficiency, robustness, and fairness</li>
-            <li>Benchmarks and evaluation protocols for capacity-performance trade-offs</li>
-        </ul>
-    </div>
-
-    <div class="topic-group">
-        <h3>Model Compression and Efficiency</h3>
-        <ul>
-            <li>Knowledge distillation, pruning, and quantization</li>
-            <li>TinyML and efficient models for edge devices and resource-constrained environments</li>
-            <li>Green AI: energy consumption, carbon footprint, and sustainability of model sizing</li>
-        </ul>
-    </div>
-
-    <div class="topic-group">
-        <h3>Domain Applications</h3>
-        <ul>
-            <li>Geosciences: climate modeling, remote sensing, sensor networks</li>
-            <li>Healthcare: medical imaging, wearable diagnostics, clinical decision support</li>
-            <li>Biology: protein folding, genomic analysis, drug discovery</li>
-            <li>Other domains with specific capacity constraints or requirements</li>
-        </ul>
-    </div>
-
-    <div class="topic-group">
-        <h3>Empirical Studies</h3>
-        <ul>
-            <li>Comparative studies of small specialized models vs. large general-purpose models</li>
-            <li>Task-specific capacity analysis across model families</li>
-            <li>Case studies on deploying right-sized models in production</li>
-        </ul>
-    </div>
+    <ul>
+        <li>Theoretical and empirical bounds on model capacity.</li>
+        <li>TinyML: Efficient models for edge devices and low-power applications.</li>
+        <li>Multi-objective optimization: Balancing accuracy, efficiency, and robustness.</li>
+        <li>Domain-specific applications:
+            <ul>
+                <li>Natural Language Processing: Tasks in Industry 4.0, digital humanities, clinical settings, etc. involving highly specific, small text corpus.</li>
+                <li>Geosciences: Climate modelling, sensor networks.</li>
+                <li>Healthcare: Medical imaging, wearable diagnostics.</li>
+                <li>Robotics: Manipulation and grasping, human–robot interaction.</li>
+                <li>Biology: Protein folding, genomic analysis.</li>
+            </ul>
+        </li>
+    </ul>
 </section>
 
 <section id="dates">
@@ -637,8 +145,37 @@
 <section id="schedule">
     <h2>Workshop Schedule</h2>
     <p class="section-lead">Preliminary schedule &mdash; details to be confirmed.</p>
-    <div class="highlight-box">
-        The detailed program will be announced after the paper acceptance notification. The half-day workshop will feature keynote talks, contributed presentations, a poster session, a panel discussion, and interactive breakout groups.
+    <div class="schedule-item">
+        <div class="schedule-time">10 min</div>
+        <div class="schedule-title">Opening Remarks</div>
+    </div>
+    <div class="schedule-item">
+        <div class="schedule-time">30 min</div>
+        <div class="schedule-title">Keynote Talk 1: Emmanuel Baccelli - "TinyML: Pushing the Limits of Model Capacity on Edge Devices"</div>
+    </div>
+    <div class="schedule-item">
+        <div class="schedule-time">30 min</div>
+        <div class="schedule-title">Keynote Talk 2: David Salinas - "Multi-Objective Optimization for Robust and Efficient AI"</div>
+    </div>
+    <div class="schedule-item">
+        <div class="schedule-time">30 min</div>
+        <div class="schedule-title">Keynote Talk 3: Jacek Gołębiowski - "Benchmarking Small Language Models"</div>
+    </div>
+    <div class="schedule-item">
+        <div class="schedule-time">40 min</div>
+        <div class="schedule-title">Panel Discussion: "Is Bigger Always Better? Capacity, Efficiency, and Real-World Needs"</div>
+    </div>
+    <div class="schedule-item break">
+        <div class="schedule-time">60 min</div>
+        <div class="schedule-title">Poster Session & Coffee Break</div>
+    </div>
+    <div class="schedule-item">
+        <div class="schedule-time">40 min</div>
+        <div class="schedule-title">Breakout Groups: Domain-specific discussions (geosciences, healthcare, robotics, biology)</div>
+    </div>
+    <div class="schedule-item">
+        <div class="schedule-time">10 min</div>
+        <div class="schedule-title">Closing Remarks & Summary</div>
     </div>
 </section>
 
@@ -649,8 +186,43 @@
         <div class="organizer-item">
             <div class="organizer-dot"></div>
             <div>
-                <div class="name">TBA</div>
-                <div class="affiliation">TBA</div>
+                <div class="name">Emmanuel Baccelli</div>
+                <div class="affiliation">INRIA, FU Berlin</div>
+            </div>
+        </div>
+        <div class="organizer-item">
+            <div class="organizer-dot"></div>
+            <div>
+                <div class="name">Giovanni Zappella</div>
+                <div class="affiliation">AWS</div>
+            </div>
+        </div>
+        <div class="organizer-item">
+            <div class="organizer-dot"></div>
+            <div>
+                <div class="name">Antonino Freno</div>
+                <div class="affiliation">ebay</div>
+            </div>
+        </div>
+        <div class="organizer-item">
+            <div class="organizer-dot"></div>
+            <div>
+                <div class="name">David Salinas</div>
+                <div class="affiliation">University Freiburg</div>
+            </div>
+        </div>
+        <div class="organizer-item">
+            <div class="organizer-dot"></div>
+            <div>
+                <div class="name">Jacek Golebiowski</div>
+                <div class="affiliation">distil labs</div>
+            </div>
+        </div>
+        <div class="organizer-item">
+            <div class="organizer-dot"></div>
+            <div>
+                <div class="name">Alexander Binder</div>
+                <div class="affiliation">University Leipzig</div>
             </div>
         </div>
     </div>
@@ -662,7 +234,14 @@
         <div class="organizer-item">
             <div class="organizer-dot"></div>
             <div>
-                <div class="name">Vipin Singh</div>
+                <div class="name">Helena Mihaljevic</div>
+                <div class="affiliation">ECDF, HTW</div>
+            </div>
+        </div>
+        <div class="organizer-item">
+            <div class="organizer-dot"></div>
+            <div>
+                <div class="name">Amy Siu</div>
                 <div class="affiliation">BHT Berlin</div>
             </div>
         </div>
@@ -670,7 +249,59 @@
             <div class="organizer-dot"></div>
             <div>
                 <div class="name">Felix Biessmann</div>
-                <div class="affiliation">BHT Berlin / ECDF</div>
+                <div class="affiliation">BHT Berlin, ECDF</div>
+            </div>
+        </div>
+        <div class="organizer-item">
+            <div class="organizer-dot"></div>
+            <div>
+                <div class="name">Erik Rodner</div>
+                <div class="affiliation">HTW Berlin, Merantix Momentum</div>
+            </div>
+        </div>
+        <div class="organizer-item">
+            <div class="organizer-dot"></div>
+            <div>
+                <div class="name">Peter Gehler</div>
+                <div class="affiliation">Univ. of Tübingen, Tübingen AI Center</div>
+            </div>
+        </div>
+        <div class="organizer-item">
+            <div class="organizer-dot"></div>
+            <div>
+                <div class="name">Alexander Binder</div>
+                <div class="affiliation">Univ. of Leipzig</div>
+            </div>
+        </div>
+        <div class="organizer-item">
+            <div class="organizer-dot"></div>
+            <div>
+                <div class="name">Kristian Hildebrand</div>
+                <div class="affiliation">BHT Berlin</div>
+            </div>
+        </div>
+    </div>
+    <h2 style="margin-top: 3rem;">PhD Organizing Team</h2>
+    <div class="organizer-grid">
+        <div class="organizer-item">
+            <div class="organizer-dot"></div>
+            <div>
+                <div class="name">Golzar Atefi</div>
+                <div class="affiliation">BHT</div>
+            </div>
+        </div>
+        <div class="organizer-item">
+            <div class="organizer-dot"></div>
+            <div>
+                <div class="name">Pallavi Mitra</div>
+                <div class="affiliation">AUMOVIO</div>
+            </div>
+        </div>
+        <div class="organizer-item">
+            <div class="organizer-dot"></div>
+            <div>
+                <div class="name">Vipin Singh</div>
+                <div class="affiliation">BHT</div>
             </div>
         </div>
         <div class="organizer-item">
@@ -687,22 +318,7 @@
                 <div class="affiliation">HTW Berlin</div>
             </div>
         </div>
-        <div class="organizer-item">
-            <div class="organizer-dot"></div>
-            <div>
-                <div class="name">Erik Rodner</div>
-                <div class="affiliation">HTW Berlin / Merantix</div>
-            </div>
-        </div>
-        <div class="organizer-item">
-            <div class="organizer-dot"></div>
-            <div>
-                <div class="name">Kristian Hildebrand</div>
-                <div class="affiliation">BHT Berlin</div>
-            </div>
-        </div>
     </div>
-
 
 </section>
 
